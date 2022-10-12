@@ -10,13 +10,13 @@
 
 1.按照社区文档安装mcl并登录运行。
 
-2.mkdir MDBot
+2.git clone https://github.com/Doctorade/MDBot.git
 
-3.cd MDBot
+3.mkdir MDBot
 
-4.git clone https://github.com/Doctorade/MDBot.git
+4.unzip MDBot.zip -d MDBot
 
-5.unzip MDBot.zip -d ./
+5.cd MDBot
 
 6.poetry install
 
