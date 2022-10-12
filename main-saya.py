@@ -15,7 +15,7 @@ app = Ariadne(
         # 以下3行请按照你的 MAH 配置来填写
         host="http://localhost:8080",  # 同 MAH 的 port
         verify_key="GraiaxVerifyKey",  # 同 MAH 配置的 verifyKey
-        account=3179025379,  # 机器人 QQ 账号
+        account=114514,  # 机器人 QQ 账号
     ),
 )
 app.create(GraiaScheduler)
