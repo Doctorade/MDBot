@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "EroEroBot"
+version = "0.1.0"
+description = "GraiaX 社区文档示例 —— 大家最喜欢的涩图机器人"
+authors = ["Graiax-Community <example@graiax.cn>"]
+readme = "README.md"
+repository = "https://github.com/Graiax-Community/EroEroBot"
+homepage = "https://graiax.cn"
+documentation = "https://graiax.cn"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+graia-ariadne = {extras = ["standard"], version = "^0.6.13"}
+graiax-silkcoder = {extras = ["ffmpeg"], version = "^0.2.2"}
+aiohttp = {extras = ["speedups"], version = "^3.8.1"}
+lxml = "^4.9.1"
+fuzzywuzzy = "^0.18.0"
+python-levenshtein = "^0.20.5"
+
+[tool.poetry.dev-dependencies]
+black = ">=22.3.0"
+isort = { version = ">=5.10.1", extras = ["requirements_deprecated_finder"] }
+flake8 = ">=4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ["py39", "py310"]
+safe = true
+
+[tool.isort]
+profile = "black"
+
+[[tool.poetry.source]]
+name = "tuna-tsinghua"
+default = false
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
+
+[[tool.poetry.source]]
+name = "aliyun"
+default = false
+url = "https://mirrors.aliyun.com/pypi/simple/"
+
+[[tool.poetry.source]]
+name = "tencent-cloud"
+default = false
+url = "https://mirrors.cloud.tencent.com/pypi/simple"
