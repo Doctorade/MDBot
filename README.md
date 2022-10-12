@@ -14,9 +14,9 @@
 
 3.cd MDBot
 
-4.git clone 
+4.git clone https://github.com/Doctorade/MDBot.git
 
-5.unzip .zip -d ./
+5.unzip MDBot.zip -d ./
 
 6.poetry install
 
