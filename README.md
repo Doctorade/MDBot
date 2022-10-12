@@ -12,15 +12,13 @@
 
 2.git clone https://github.com/Doctorade/MDBot.git
 
-3.mkdir MDBot
+3.cd MDBot
 
-4.unzip MDBot.zip -d MDBot
+4.修改main-saya.py中qq号与机器人qq一致
 
-5.cd MDBot
+5.poetry install
 
-6.poetry install
-
-7.poetry run python ./main-saya.py
+6.poetry run python ./main-saya.py
 
 如果你部署过机器人并且也是基于Graia-Saya，那么将mdbot文件夹整个复制进你的modules目录下即可
 
