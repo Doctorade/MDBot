@@ -20,6 +20,6 @@
 
 6.poetry run python ./main-saya.py
 
-如果你部署过机器人并且也是基于Graia-Saya，那么将mdbot文件夹整个复制进你的modules目录下即可
+如果你部署过机器人并且也是基于Graia-Saya，那么将mdbot文件夹整个放进你的modules目录下即可
 
-如果你部署过机器人并且可以调用python接口，那么将字符型qq号和消息传入MDBot.mdbot(str(qq), message)即可
+如果你部署过机器人并且可以调用python接口，那么将字符型qq号和消息传入MDBot.mdbot(str(qq), message)，然后将返回的字符串发回接收到的群聊之中即可
