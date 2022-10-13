@@ -29,33 +29,49 @@ def b30(md_uid):
     ptt = tree.xpath('//*[@id="app"]/section/div/div/div/section/div/div/div[2]/div/div[1]/h1')[0].text
     ptt = ptt.replace(' ', '')
     ptt = ptt.replace('\n', '')
+
     songs = {}
+    num = 1
     for i in range(len(spans)):
         if i == 0:
             continue
 
         song = spans[i].xpath('./div[4]/div/a[2]/@href')
+
         song_chars = song[0].split('/')
         song_uid = song_chars[2]
         song_dif = int(song_chars[3])
         acc = spans[i].xpath('./div[3]/div/p[1]')
         song_acc = float(acc[0].text[:-1]) / 100
 
+        break_flag = False
+        for song in songs:
+            if songs[song]['uid'] == song_uid and songs[song]['dif'] == song_dif:
+                break_flag = True
+                if song_acc > songs[song]['acc']:
+                    songs[song]['acc'] = song_acc
+                break
+
+        if break_flag:
+            continue
+
         info = {}
+        info['uid'] = song_uid
         info['dif'] = song_dif
         info['acc'] = song_acc
         info['ptt'] = 0
-        songs[song_uid] = info
+        songs[num] = info
+        num += 1
 
     with open('./md_data/musics.json', 'rb') as f:
         music_data = json.load(f)
     f.close()
 
     for song in songs:
-        songs[song]['diffdiff'] = music_data[song]['diffdiff'][songs[song]['dif']]
-        songs[song]['ptt'] = music_data[song]['diffdiff'][songs[song]['dif']] * songs[song]['acc']
-        songs[song]['dif'] = music_data[song]['difficulty'][songs[song]['dif']]
-        songs[song]['name'] = music_data[song]['ChineseS']['name']
+        songs[song]['diffdiff'] = music_data[songs[song]['uid']]['diffdiff'][songs[song]['dif']]
+        songs[song]['ptt'] = music_data[songs[song]['uid']]['diffdiff'][songs[song]['dif']] * songs[song]['acc']
+        songs[song]['dif'] = music_data[songs[song]['uid']]['difficulty'][songs[song]['dif']]
+        songs[song]['name'] = music_data[songs[song]['uid']]['ChineseS']['name']
 
         songs[song]['acc'] = '{:.2%}'.format(songs[song]['acc'])
         songs[song]['diffdiff'] = '{:.2f}'.format(songs[song]['diffdiff'])
@@ -314,3 +330,6 @@ def mdbot(qq, message):
             return '您可真会玩!试试/md help'
     except:
         return '出错了！试试/md help'
+
+# update_musics()
+print(b30('08af21ccc46011e89d3d0242ac110070'))
