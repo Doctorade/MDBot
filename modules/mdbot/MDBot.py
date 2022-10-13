@@ -330,6 +330,3 @@ def mdbot(qq, message):
             return '您可真会玩!试试/md help'
     except:
         return '出错了！试试/md help'
-
-# update_musics()
-print(b30('08af21ccc46011e89d3d0242ac110070'))
