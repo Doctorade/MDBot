@@ -179,7 +179,10 @@ def unbind(qq):
         return False, ''
 
 def update_musics():
-    os.mkdir(r'./md_data')
+    try:
+        os.mkdir(r'./md_data')
+    except:
+        pass
     response = requests.get(url=dif_url)
     dif = json.loads(response.text)
 
